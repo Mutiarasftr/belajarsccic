@@ -1,0 +1,32 @@
+<div class="tab-pane fade" id="show-cctv-analytic-object-detection" role="tabpanel" aria-labelledby="home-tab">
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4 mt-2">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-8">
+            <img src="http://localhost:<%= port %>" alt="" width="100%">
+          </div>
+          <div class="col-md-4">
+            <div class="alert alert-primary">
+              <div class="row">
+                Density - Today
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                    Total Count <br> <p id="jml_obj"> 74 </p>
+                </div>
+              </div>
+            </div>
+            <div class="card shadow mb-4 mt-2">
+              <div class="card-body">
+                <div class="chart">
+                  <canvas id="objectChart" class="chart-canvas"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

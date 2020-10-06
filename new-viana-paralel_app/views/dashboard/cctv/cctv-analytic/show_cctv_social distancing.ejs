@@ -1,0 +1,42 @@
+<div class="tab-pane fade" id="show-cctv-analytic-social-distancing" role="tabpanel" aria-labelledby="home-tab">
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4 mt-2">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-8">
+            <img src="http://localhost:<%= port %>/video_feed" alt="" width="100%">
+          </div>
+          <div class="col-md-4">
+            <div class="alert alert-primary">
+              <div class="row">
+                Density - Today
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                    Total Count <br>  <p id="jml"> 0 </p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  Save Count <br> <p id="jml_save"> 0 </p>
+              </div>
+                <div class="col-md-4">
+                  Low Risk Count <br> <p id="jml_low"> 0 </p>
+                </div>
+                <div class="col-md-4">
+                  High Risk Count <br> <p id="jml_high"> 0 </p>
+                </div>
+              </div>
+            </div>
+            <div class="card shadow mb-4 mt-2">
+              <div class="card-body">
+                <div class="chart">
+                  <canvas id="covidChart" class="chart-canvas"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

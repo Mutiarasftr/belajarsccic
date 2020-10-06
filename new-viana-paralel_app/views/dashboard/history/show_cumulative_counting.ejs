@@ -1,0 +1,69 @@
+<div class="tab-pane fade" id="show-cumulative-counting-history" role="tabpanel" aria-labelledby="home-tab">
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4 mt-2">
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered" id="table_cumulative_counting" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Time</th>
+                <th>CCTV</th>
+                <th>Line</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% for(let i=0; i<cum_event.length; i++){ %>
+                  <tr>
+                    <td><%= i+1 %></td>
+                    <td><%= new Date(cum_event[i].count.date).toUTCString() %></td>
+                    <td><%= cum_event[i].event.camera_name %></td>
+                    <td width=100px>
+                      <button class="common" data-id="<%= i %>">Click Me</button>
+                      <table class="myTAB table-bordered" style="display: none;">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th>ROI</th>
+                            <th>TOTAL</th>
+                            <th>DATA</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <% for(let k=0; k<cum_event[i].count.res.length; k++){ %>
+                            <tr>
+                              <td><%= cum_event[i].count.res[k].roi %></td>
+                              <td><%= cum_event[i].count.res[k].total %></td>
+                              <td>
+                                <table class="table-bordered">
+                                  <thead class="table-success">
+                                    <tr>
+                                        <th>object</th>
+                                        <th>count</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                     <% for(let l=0; l<cum_event[i].count.res[k].data.length; l++){ %>
+                                      <tr>
+                                          <td><%= cum_event[i].count.res[k].data[l].object %></td>
+                                          <td><%= cum_event[i].count.res[k].data[l].count %></td>
+                                      </tr>
+                                      <% } %>
+                                  </tbody>
+                               </table>
+                              </td>
+                            </tr>
+                            <% } %>
+                          </tbody>
+                        </table>
+                      </td>
+                      <td>AKSI</td>
+                  </tr>
+                  <%} %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  

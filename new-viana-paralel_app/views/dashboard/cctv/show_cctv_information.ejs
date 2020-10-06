@@ -1,0 +1,46 @@
+<div class="tab-pane fade show active" id="show-cctv-info" role="tabpanel" aria-labelledby="home-tab">
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4 mt-2">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-8">
+            <% if(camera[0].ip.substring(camera[0].ip.length - 4) == 'm3u8'){ %>
+              <video-js autoplay id=vid-info data-setup='{"fluid": true}' class="vjs-default-skin" controls muted>
+                <source
+                  src="<%= camera[0].ip %>"
+                  type="application/x-mpegURL">
+              </video-js>
+            <% }else { %>
+              <img id="rtsp" alt="" width="100%">
+            <% } %>
+
+          </div>
+          <div class="col-md-4">
+            <div class="row ml-1">
+              CCTV Information
+            </div>
+            <div class="alert alert-primary">
+                <div class="row">
+                  <h5>Location Details </h5> 
+                </div>
+                <div class="row">
+                  <%= camera[0].address %>
+                </div>
+            </div>
+            <div class="alert alert-primary">
+                <div class="row">
+                  <h5> CCTV Details </h5> <br>
+                </div>
+                <div class="row">
+                  Brand: Hisens <br>
+                  IP Address: <%= camera[0].ip %> <br>
+                  Created date: <br>
+                  Status: <%= camera[0].status %>
+                </div>
+            </div>
+          </div>
+      </div>
+      </div>
+    </div>
+  </div>
+    

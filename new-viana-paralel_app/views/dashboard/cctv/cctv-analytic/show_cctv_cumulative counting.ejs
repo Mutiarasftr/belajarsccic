@@ -1,0 +1,33 @@
+<div class="tab-pane fade" id="show-cctv-analytic-cumulative-counting" role="tabpanel" aria-labelledby="home-tab">
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4 mt-2">
+        <div class="card-body">
+          <div class="row">
+              <div class="col-md-8">
+                  <img src="http://localhost:<%= port %>/video_feed" alt="" width="100%">
+              </div>
+              <div class="col-md-4">
+                  <div class="alert alert-primary">
+                      <div class="row">
+                          Vehicle Counter - Today
+                      </div>
+                      <div class="row">
+                          <div class="col-md-6">
+                              Total Today <br> <p id="jumlah"> 74 </p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="alert alert-primary">
+                      <div class="row">
+                          Vehicle Classification - Today
+                      </div>
+                      <div class="row">
+                          <canvas id="myChart"></canvas>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+  </div>
+    

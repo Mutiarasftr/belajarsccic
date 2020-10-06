@@ -1,0 +1,276 @@
+<div class="tab-pane fade" id="add-camera" role="tabpanel" aria-labelledby="profile-tab">
+    <div class="card shadow mb-4 mt-2">
+        <div class="card-body">
+            <form action="/configuration/camera" method="POST">
+                <div class="form-group">
+                    <label for="name">Site</label>
+                    <select name="siteId" class="form-control" required>
+                        <option value="">--- Site ---</option>
+                        <% for(let i=0; i<site.length; i++){ %>
+                            <option value="<%= site[i].id %>"><%= site[i].name %></option>
+                        <% } %>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" name="name" placeholder="Enter camera name" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Brand</label>
+                    <input type="text" class="form-control" name="brand" placeholder="Enter camera name" required>
+                </div>
+                <div class="form-group">
+                    <label for="nama">Status</label>
+                    <select name="status" class="form-control" required>
+                        <option value="active">--- Active ---</option>
+                        <option value="inactive">--- Inactive ---</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="name">Latitude</label>
+                    <input type="text" class="form-control" name="latitude" placeholder="Enter latitude" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Longitude</label>
+                    <input type="text" class="form-control" name="longitude" placeholder="Enter longitude" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Protocol</label>
+                    <input type="text" class="form-control" name="protocol" placeholder="Enter protocol type" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">IP Adress</label>
+                    <input type="text" class="form-control" name="ip" placeholder="Enter IP camera" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Adress</label>
+                    <input type="text" class="form-control" name="address" placeholder="Enter remark" required>
+                </div>
+
+                <!-- SVG -->
+                <div class="row">
+                  <div class="col-xl-6">
+                    <div class="card bg-default">
+                      <div class="card-header bg-transparent">
+                        <div class="row align-items-center">
+                          <div class="col">
+                            <h6 class="text-uppercase ls-1 mb-1">Add CCTV on Maps</h6>
+                            <h5 class="h3 mb-0">CCTV &amp; Sensor Spot</h5>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                          <center>
+                              <div id="tes" style="display: none;">
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="75%" viewBox="0 0 600 600" enable-background="new 0 0 600 600" xml:space="preserve" id="hoho">
+                                  <g id="cctv_ns" class="cctv_n" data-toggle="modal" data-target="#myModal" data-id="camera1">
+                                    <path
+                                      d="M190.387,134.138l-27.415,42.051l-42.642-27.73l-15.554,26.596L38,180.884v46.391H0v-120h38v43.494l48.664-4.244  l8.575-14.453L36.887,94.088l51.544-79.183l153.748,100.082L190.387,134.138z M173.874,183.244l19.924,12.971l27-41.474  l-19.924-12.971L173.874,183.244z"
+                                      transform="translate(338, 518) scale(0.25, 0.25)"
+                                      fill="#000">
+                                    </path>
+                                  </g>
+                                </svg>
+                              </div>
+                              
+                              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="75%" viewBox="0 0 600 600" enable-background="new 0 0 600 600" xml:space="preserve" id="svg" >
+                                <g id="Kantor_1">
+                                  <polygon  id="kantor11" class="red" stroke="#000" fill="#DE8E96" points="78.751,515.474 180.234,518.974 179.437,543.837 77.893,540.337">
+                                    <title>Kantor</title>
+                                  </polygon>
+                                  <text x="130" y="535" text-anchor="middle" fill="black" font-size="16">Kantor</text>
+                                </g>
+                                <g id="Loket_1">
+                                  <polygon class="red" stroke="#000	" fill="#DE8E96" points="301.633,522.998 312.192,523.367 311.149,554.555 300.528,554.186">
+                                    <title>Loket</title>
+                                  </polygon>
+                                  <text x="307" y="540" text-anchor="middle" fill="black" font-size="6" style="writing-mode: tb; glyph-orientation-vertical: 90;">Loket</text>
+                                </g>
+                                <g id="untitled_7">
+                                  <polygon class="orange" stroke="#000" fill="#E59F83" points="307.44,304.711 329.297,305.447 325.858,406.01 303.94,405.273 	"/>
+                                  <polygon class="orange" stroke="#000" fill="#E59F83" points="430.104,308.885 447.602,309.498 444.102,410.063 426.666,409.508 	"/>
+                                </g>
+                                <g id="Peron">
+                                  <polygon class="orange" stroke="#000" fill="#F8B290" points="492.602,417.122 492.232,427.927 539.566,429.585 536.066,531.19 455.52,528.429 153.221,518.054 
+                                    156.903,409.265 39.151,405.212 39.458,396.37 492.785,411.966">
+                                    <title>Peron</title>
+                                  </polygon>
+                                  <text x="330" y="475" text-anchor="middle" fill="black" font-size="40">Peron</text>
+                                </g>
+                                <g id="Kantor">
+                                  <polygon class="red" stroke="#000" fill="#DE8E96" points="444.636,527.92 443.286,566.844 460.599,567.457 460.966,556.16 535.19,558.678 536.112,531.051 	
+                                    "/>
+                                </g>
+                                <g id="Retail_11">
+                                  <polygon class="yellow" stroke="#000"  stroke="#000" fill="#FCF284" points="386.295,525.319 444.705,527.339 443.342,567.334 384.993,565.315 	"/>
+                                </g>
+                                <g id="Retail_8">
+                                  <polygon class="yellow" stroke="#000" fill="#FCF284" points="203.9,519.324 180.081,518.525 179.281,543.391 203.042,544.189 	"/>
+                                </g>
+                                <g id="Retail_9">
+                                  <polygon class="yellow" stroke="#000" fill="#FCF284" points="289.693,523.072 237.202,521.293 236.097,552.479 288.65,554.26 	"/>
+                                </g>
+                                <g id="Toilet_2">
+                                  <polygon class="yellow" stroke="#000"  fill="#EFE27E" points="237.648,520.951 203.514,519.785 202.471,550.973 236.543,552.139 	"/>
+                                </g>
+                                <g id="untitled_8">
+                                  <polygon class="yellow" stroke="#000" fill="#E5D575" points="153.809,500.678 153.221,518.054 289.359,523.638 288.359,555.134 301.039,554.335 
+                                    302.144,523.147 536.066,531.19 536.113,515.474 	"/>
+                                </g>
+                                <g id="untitled_5">
+                                  <polygon class="yellow" stroke="#000" fill="#F1E47C" points="300.7,296.006 334.711,297.173 333.299,337.201 299.288,336.035 	"/>
+                                </g>
+                                <g id="untitled_6">
+                                  <polygon class="yellow" stroke="#000" fill="#F1E47C" points="421.338,300.593 455.35,301.761 453.938,341.788 419.926,340.622 	"/>
+                                </g>
+                                <g id="Ruang_Tunggu_1">
+                                  <polygon class="yellow" stroke="#000"  fill="#FCF284" points="328.804,311.569 429.612,315.007 428.691,340.548 327.945,337.108 	"/>
+                                </g>
+                                <g id="Retail">
+                                  <polygon class="yellow" stroke="#000" fill="#FCF284" points="273.687,295.133 307.699,296.3 306.287,336.328 272.275,335.162 	"/>
+                                </g>
+                                <g id="Toilet_1">
+                                  <polygon class="yellow" stroke="#000" fill="#FCF284" points="447.201,321.532 467.953,322.208 467.277,341.731 446.525,340.993 	"/>
+                                </g>
+                                <g id="untitled_3">
+                                  <polygon class="red" stroke="#000" fill="#DE8E96" points="447.691,309.794 468.443,310.532 468.014,322.319 447.262,321.646 	"/>
+                                </g>
+                                <g id="untitled_4">
+                                  <polyline class="red" stroke="#000" fill="#DE8E96" points="482.762,214.34 480.797,271.681 501.73,272.418 501.916,267.445 514.256,267.875 516.098,215.261 
+                                    482.762,214.094 	"/>
+                                  <polygon class="red" stroke="#000" fill="#DE8E96" points="446.048,357.588 469.255,358.387 497.927,331.436 500.013,272.252 488.288,271.822 486.2,331.068 
+                                    467.106,348.934 467.353,341.627 446.601,340.891 	"/>
+                                </g>
+                                <g id="Loket">
+                                  <polygon class="red" stroke="#000" fill="#DE8E96" points="346.767,306.215 363.589,306.813 363.397,313.039 346.573,312.442 	"/>
+                                </g>
+                                <g id="Atm_1">
+                                  <rect x="376.364" y="551.066" transform="matrix(-0.9994 -0.0353 0.0353 -0.9994 741.868 1137.7395)" class="green" stroke="#000" fill="#8EC18F" width="9.217" height="22.517"/>
+                                </g>
+                                <g id="Retail_10">
+                                  <polygon class="green" stroke="#000" fill="#8EC18F" points="348.499,555.359 330.512,554.748 330.02,570.217 347.945,570.832 	"/>
+                                </g>
+                                <g id="Hall_1">
+                                  <polyline class="green" stroke="#000" fill="#9FD3A2" points="312.207,523.456 311.163,554.644 348.122,555.87 347.324,577.851 375.995,578.831 
+                                    376.915,551.083 385.449,551.39 386.308,526.034 312.207,523.456 311.163,554.644 	"/>
+                                </g>
+                                <g id="untitled_2">
+                                  <polyline class="green" stroke="#000" fill="#86B787" points="459.34,289.657 446.905,290.222 447.581,284.083 443.96,47.228 449.809,43.403 450.651,23.653 
+                                    458.632,23.959 458.019,41.948 477.663,63.19 474.288,161.419 481.409,172.347 478.093,269.042 459.34,289.657 	"/>
+                                </g>
+                                <g id="Musholla">
+                                  <polygon class="green" stroke="#000" fill="#8EC18F" points="307.946,296.563 309.135,261.232 295.13,260.729 295.443,251.093 269.747,250.211 269.372,261.484 
+                                    259.806,277.229 259.179,294.862 	"/>
+                                </g>
+                                <g id="Toilet">
+                                  <polygon class="green" stroke="#000" fill="#8EC18F" points="253.783,303.883 273.845,304.564 273.211,323.509 253.085,322.827 	"/>
+                                </g>
+                                <g id="Ticketing">
+                                  <polygon class="green" stroke="#000" fill="#72A072" points="347.331,280.976 366.036,281.888 365.446,307.252 346.68,306.339 	"/>
+                                </g>
+                                <g id="Ruang_Tunggu">
+                                  <polygon class="green" stroke="#000" fill="#86B787" points="399.96,272.089 430.711,273.559 429.741,314.371 398.894,312.902 	"/>
+                                </g>
+                                <g id="Atm">
+                                  <polygon class="green" stroke="#000" fill="#9FD3A2" points="398.292,277.482 415.933,277.737 415.376,284.8 397.678,284.546 	"/>
+                                </g>
+                                <g id="Retail_7">
+                                  <polygon class="green" stroke="#000" fill="#8EC18F" points="447.365,290.04 446.729,309.793 474.931,310.745 475.945,281.528 465.783,281.147 458.034,289.658 
+                                    447.428,289.341 	"/>
+                                </g>
+                                <g id="Retail_6">
+                                  <polygon class="green" stroke="#000" fill="#8EC18F" points="447.981,265.2 467.078,265.884 466.878,271.422 453.287,286.667 447.319,286.462 	"/>
+                                </g>
+                                <g id="Retail_5">
+                                  <polygon class="green" stroke="#000" fill="#9FD3A2" points="363.412,307.014 430.209,309.285 430.023,315.057 363.229,312.785 	"/>
+                                </g>
+                                <g id="Retail_3">
+                                  <polygon class="green" stroke="#000" fill="#8EC18F" points="401.338,262.146 414.402,262.766 413.99,279.964 400.884,279.345 	"/>
+                                </g>
+                                <g id="Retail_4">
+                                  <polygon class="green" stroke="#000" fill="#8EC18F" points="413.564,277.697 431.206,277.951 430.649,285.015 412.951,284.761 	"/>
+                                </g>
+                                <g id="Retail_1">
+                                  <polygon class="green" stroke="#000" fill="#8EC18F" points="329.36,260.499 365.238,261.152 364.105,279.314 328.112,278.66 	"/>
+                                </g>
+                                <g id="Retail_2">
+                                  <polygon class="green" stroke="#000" fill="#8EC18F" points="329.03,285.425 347.735,286.363 347.145,312.427 328.379,311.488 	"/>
+                                </g>
+                                <g id="untitled_1">
+                                  <polygon class="green" stroke="#000" fill="#86B787" points="449.078,264.831 430.926,264.185 429.376,309.557 447.526,310.204 	"/>
+                                </g>
+                                <g id="untitled">
+                                  <polygon class="green" stroke="#000" fill="#86B787" points="308.582,260.56 331.027,261.325 330.585,275.917 365.45,277.127 365.135,287.514 330.208,286.304 
+                                    329.514,306.121 307.07,305.356 	"/>
+                                </g>
+                                <g id="Hall">
+                                  <polygon class="green" stroke="#000" fill="#7CAE7D" points="401.642,256.364 364.869,255.136 363.087,307.013 399.863,308.302 	"/>
+                                </g>
+                                <g id="Pintu_Keluar_Parkir">
+                                  <polygon class="green" stroke="#000" fill="#8EC18F" points="350.059,18.207 380.08,19.251 379.405,40.063 349.323,39.081 	"/>
+                                </g>
+                                <g id="Pintu_Keluar_Parkir_2">
+                                  <polygon class="green" stroke="#000" fill="#8EC18F" points="282.035,66.782 312.057,67.826 311.382,88.638 281.3,87.656 	"/>
+                                </g>
+                                <g id="Pintu_Masuk_Parkir">
+                                  <polygon class="green" stroke="#000" fill="#8EC18F" points="406.53,41.681 440.25,42.68 439.492,62.61 405.703,61.67 	"/>
+                                </g>
+                                <g id="Kantor_Reska">
+                                  <polygon class="green" stroke="#000" fill="#7CAE7D" points="379.671,19.444 411.258,20.261 410.548,36.554 378.897,35.785 	"/>
+                                </g>
+                                <g id="Parkir_Mobil">
+                                  <polygon class="green" stroke="#000" fill="#9FD3A2" points="253.229,322.925 123.689,297.509 128.478,273.136 132.775,147.832 166.173,148.999 
+                                    165.928,155.998 201.72,157.226 202.518,134.633 215.779,135.124 217.498,85.15 311.123,88.343 312.289,55.129 330.892,37.755 
+                                    379.576,39.412 379.699,35.176 411.192,36.281 411.009,42.114 407.326,41.99 406.649,60.593 436.979,61.636 437.653,43.034 
+                                    449.503,43.403 449.319,49.726 465.772,67.53 462.456,164.654 469.579,175.582 466.448,267.303 431.515,266.076 431.022,280.135 
+                                    412.851,279.521 413.342,263.865 401.556,263.436 401.8,256.253 365.026,255.025 364.78,262.208 330.769,261.041 330.707,262.576 
+                                    295.099,261.348 295.405,251.955 270.173,251.096 269.805,262.084 260.412,277.433 259.798,294.624 273.673,295.114 
+                                    273.306,304.815 253.904,304.14 	">
+                                    <title>Parkir Mobil</title>
+                                  </polygon>
+                                  <text x="390" y="160" text-anchor="middle" fill="black" font-size="20">Parkir Mobil</text>
+                                  <text x="195" y="230" text-anchor="middle" fill="black" font-size="16">Parkir Mobil</text>
+                                </g>
+                                <g id="Parkir_Motor">
+                                  <polygon class="green" stroke="#000" fill="#8EC18F" points="308.957,155.833 258.859,154.113 255.79,242.458 305.949,244.177 	">
+                                    <title>Parkir Motor</title>
+                                  </polygon>
+                                  <text x="280" y="202" text-anchor="middle" fill="black" font-size="10" style="writing-mode: tb; glyph-orientation-vertical: 90;" >PARKIR MOTOR</text>
+                                </g>
+                              </svg>
+                            </center>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-xl-6">
+                    <div class="card">
+                      <div class="card-header bg-transparent">
+                        <div class="row align-items-center">
+                          <div class="col">
+                            <h6 class="text-uppercase text-muted ls-1 mb-1">Information</h6>
+                            <h5 class="h3 mb-0">Close Circuit Television (CCTV)</h5>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-body" >
+                        <!-- Content -->  
+                        <div class="form-group">
+                          <label for="name">X Coordinate</label>
+                          <input type="text" class="form-control" id="x-coor" name="xcoor" required>
+                        </div>
+                        <div class="form-group">
+                          <label for="name">Y Coordinate</label>
+                          <input type="text" class="form-control" id="y-coor" name="ycoor" required>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- END SVG -->
+
+                <button type="submit" class="btn btn-primary">Add</button>
+              </form>
+        </div>
+      </div>
+</div>

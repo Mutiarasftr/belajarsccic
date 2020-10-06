@@ -1,0 +1,58 @@
+<div class="tab-pane fade" id="show-cctv-analytic-face-recognition" role="tabpanel" aria-labelledby="home-tab">
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4 mt-2">
+      <div class="card-body">
+        <div class="row">
+            <div class="col-md-8">
+                <img src="http://localhost:<%= port %>/video_feed" alt="" width="100%">
+            </div>
+            <div class="col-md-4">
+                <div class="alert alert-primary">
+                    <div class="row">
+                        Face Recognition - Today
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            Total Today <br> <p id="jml_face_known"><%= data_jml_face.known + data_jml_face.unknown %></p>
+                        </div>
+                        <div class="col-md-6">
+                            Recognized Face <br> <%= data_jml_face.known %>
+                        </div>
+                    </div>
+                </div>
+                <div class="alert alert-primary">
+                    <div class="row">
+                        Recognized Face - Today
+                    </div>
+                    <div class="row">
+                        <div id="hcol">
+                          <ol id="alarmid">
+                                <%for(i=0; i<data_event.length; i++){ %>
+                                    <li style="list-style-type: none; float: left;">
+                                        <div class="row">
+                                            <div class="col mr-2">
+                                                <img class="mb-2 zoom" src="/images/face-recognition-data/<%= data_event[i].face.images %>" width="50" height="50"/>
+                                                <p class="class_data" style="margin: auto; font-size: 12px;"><%= data_event[i].face.class %></p>
+                                                <p style="margin: auto"><%= data_event[i].face.name %></p>
+                                                <p style="margin: auto; font-size: 12px;"><%= new Date(data_event[i].face.date).getFormatDate() %></p>
+                                                <p style="margin: auto; font-size: 12px;"><%= new Date(data_event[i].face.date).getFormatTime() %></p>
+                                                <p style="margin: auto; font-size: 11px;"><%= data_event[i].face.camera_name %></p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                <%}%>
+                          </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="alert alert-primary">
+                    <div class="row">
+                        Unrecognized Face - Today
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    

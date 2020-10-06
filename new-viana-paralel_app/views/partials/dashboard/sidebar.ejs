@@ -1,0 +1,78 @@
+<!-- Sidebar -->
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <img src="/images/src/smartstation-white.png" alt="" style="width: 100px; height: 32px;">
+      <div class="sidebar-brand-text mx-3">Viana</div>
+    </a>
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+      Master
+    </div>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <li class="nav-item <% if(page == 'Home'){ %> active <% } %>">
+      <a class="nav-link <% if(action == 'loading'){ %> isDisabled <% } %>" href="/dashboard/home" <% if(action == 'loading'){ %> onclick="return false;" <% } %> >
+        <i class="fas fa-fw fa-home"></i>
+        <span>Home</span></a>
+    </li>
+
+    <li class="nav-item <% if(page == 'Face Recognition' || page == 'Plate Recognition' || page == 'Face Enrollment' || page == 'Plate Enrollment'){ %> active <% } %>">
+      <a class="nav-link collapsed <% if(action == 'loading'){ %> isDisabled <% } %>" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        <i class="fas fa-fw fa-list-alt"></i>
+        <span>Feature</span>
+      </a>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <a class="collapse-item <% if(action == 'loading'){ %> isDisabled <% } %>" href="/dashboard/face-enrollment" <% if(action == 'loading'){ %> onclick="return false;" <% } %> >Face Enrollment</a>
+        </div>
+      </div>
+    </li>
+
+    <li class="nav-item <% if(page == 'Maps'){ %> active <% } %>">
+      <a class="nav-link <% if(action == 'loading'){ %> isDisabled <% } %>" href="/dashboard/maps" <% if(action == 'loading'){ %> onclick="return false;" <% } %> >
+        <i class="fas fa-fw fa-map"></i>
+        <span>Maps</span></a>
+    </li>
+
+    <li class="nav-item <% if(page == 'CCTV'){ %> active <% } %>">
+      <a class="nav-link <% if(action == 'loading'){ %> isDisabled <% } %>" href="/dashboard/cctv" <% if(action == 'loading'){ %> onclick="return false;" <% } %> >
+        <i class="fas fa-fw fa-camera"></i>
+        <span>CCTV List</span></a>
+    </li>
+
+    <li class="nav-item <% if(page == 'History'){ %> active <% } %>">
+      <a class="nav-link <% if(action == 'loading'){ %> isDisabled <% } %>" href="/dashboard/history" <% if(action == 'loading'){ %> onclick="return false;" <% } %> >
+        <i class="fas fa-fw fa-history"></i>
+        <span>Event History</span></a>
+    </li>
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+      Option
+    </div>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Nav Item - Charts -->
+    <li class="nav-item">
+      <a class="nav-link <% if(action == 'loading'){ %> isDisabled <% } %>" href="/configuration/site" <% if(action == 'loading'){ %> onclick="return false;" <% } %> >
+        <i class="fas fa-fw fa-cog"></i>
+        <span>Go to Configuration</span></a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+      <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+
+  </ul>
+  <!-- End of Sidebar -->

@@ -1,0 +1,80 @@
+<div class="tab-pane fade" id="show-cctv-analytic-cumulative-counting" role="tabpanel" aria-labelledby="home-tab">
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4 mt-2">
+      <div class="card-body">
+        Cumulative Counting
+        <div class="row">
+            <div class="col-xl-12">
+                <div id="warning" class="card-body"></div>
+            </div>
+
+            <div class="col-xl-6">
+                <div class="card">
+                    <div class="card-header bg-transparent">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h6 class="text-uppercase ls-1 mb-1">Counting</h6>
+                                <h5 class="h3 mb-0">Cumulative Counting</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <select name="roi" id="roi" class="form-control">Not Selected</select>
+                        </div>
+
+                        <div class="bs-example">
+                            
+                            <ul id="myTab" class="nav nav-pills mb-5 justify-content-center">
+                            
+                                <li class="nav-item">
+                                    <a href="#xLineChart" class="nav-link active">Line Chart</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#xPieChart" class="nav-link">Pie Chart</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="xLineChart">
+                                    <div id="bar" class="chart">
+                                        <canvas id="objectChart" class="chart-canvas"></canvas>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="xPieChart">
+                                    <div id="pie" class="chart">
+                                        <canvas id="cobapieChart" class="chart-canvas"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="card ">
+                    <div class="card-header bg-transparent">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h6 class="text-uppercase ls-1 mb-1">Recapitulation</h6>
+                                <h5 class="h3 mb-0">Object Counting</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart">
+                            <canvas id="pieChart" class="chart-canvas mb-5 mt-5"></canvas>
+                        </div>
+                    </div>
+
+                    <div id="roi-row" class="row justify-content-center">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    

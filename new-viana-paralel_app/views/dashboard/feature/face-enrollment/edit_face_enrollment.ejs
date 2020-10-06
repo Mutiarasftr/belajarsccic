@@ -1,0 +1,41 @@
+<div class="tab-pane fade show active" id="edit-face-enrollment" role="tabpanel" aria-labelledby="profile-tab">
+    <div class="card shadow mb-4 mt-2">
+        <div class="card-body">
+            <form action="/dashboard/face-enrollment/<%= face.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" name="name" placeholder="Enter name" value="<%= face.name %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">ID TAG</label>
+                    <input type="text" class="form-control" name="id_tag" placeholder="Enter ID TAG" value="<%= face.id_tag %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="nama">Gender</label>
+                    <select name="gender" class="form-control" required>
+                        <option value="male">--- Male ---</option>
+                        <option value="female">--- Female ---</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="name">Birth of Date</label>
+                    <input type="date" class="form-control" name="birth_date" placeholder="Enter birth date" value="<%= face.birth_date.toISOString().slice(0,10) %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Nationality</label>
+                    <input type="text" class="form-control" name="nationality" placeholder="Enter nationality" value="<%= face.nationality %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Status</label>
+                    <input type="text" class="form-control" name="status" placeholder="Enter status" value="<%= face.status %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="nama">Image</label>
+                    <input type="file" class="form-control" name="image">
+                </div>
+
+                <button type="submit" class="btn btn-primary">save</button>
+              </form>
+        </div>
+      </div>
+</div>

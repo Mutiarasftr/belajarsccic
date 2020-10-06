@@ -1,0 +1,118 @@
+<%- include('../../partials/header.ejs') %>
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <%- include('../../partials/sidebar.ejs') %>
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <%- include('../../partials/navbar.ejs') %>
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+            <%- include('../../partials/message.ejs') %>
+            
+            <!-- Page Heading -->
+            <h1 class="h3 mb-4 text-gray-800">Camera</h1>
+
+            <% if(action == 'view') { %>
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link active" id="home-tab" data-toggle="tab" href="#show-camera" role="tab" aria-controls="home" aria-selected="true">Show Camera</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" id="profile-tab" data-toggle="tab" href="#add-camera" role="tab" aria-controls="profile" aria-selected="false">Add Camera</a>
+                </li>
+              </ul>
+              <div class="tab-content" id="myTabContent">
+                <%- include('show_table_camera.ejs') %>
+                <%- include('add_camera.ejs') %>
+              </div>
+              <% } else { %>
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link active" id="home-tab" data-toggle="tab" href="#edit-camera" role="tab" aria-controls="home" aria-selected="true">Edit Camera</a>
+                </li>
+              </ul>
+              <div class="tab-content" id="myTabContent">
+                <%- include('edit_camera.ejs') %>
+              </div>
+            <% } %>
+
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <%- include('../../partials/footer.ejs') %>
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%- include('../../partials/js.ejs') %>
+
+  <script>
+    var svg = document.getElementById("svg"); //ambil svg id dari maps
+      
+    var hoho = document.getElementById("hoho"); //ambil svg id kamera yang dihide untuk d pindah-pindah
+    var paths = hoho.querySelector('.cctv_n > path');
+    //paths.setAttribute("transform", `translate(393, 20) scale(0.25, 0.25)`);
+    
+    var temp = document.getElementById("cctv_ns");
+    //temp.style.display = 'inline';
+    //var clon = temp.cloneNode(true);
+    //svg.appendChild(clon);
+    //var clon2 = temp.cloneNode(true);
+    //temp.setAttribute("transform", "translate(393, 11)");
+
+    var x = document.getElementById("x-coor");
+    var y = document.getElementById("y-coor");
+
+    svg.addEventListener("click", function(){
+      var pt = svg.createSVGPoint(), svgP;
+      pt.x = event.clientX;
+      pt.y = event.clientY-40;
+      svgP = pt.matrixTransform(svg.getScreenCTM().inverse());
+      
+      paths.setAttribute("transform", `translate(${svgP.x}, ${svgP.y}) scale(0.25, 0.25)`);
+      svg.appendChild(temp);
+      
+      var coords = "X coords: " + svgP.x + ", Y coords: " + svgP.y;
+      x.value = svgP.x;
+      y.value = svgP.y;
+      console.log(coords);
+    });
+  </script>

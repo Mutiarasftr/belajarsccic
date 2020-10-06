@@ -1,0 +1,37 @@
+<div class="tab-pane fade" id="show-face-unknown-history" role="tabpanel" aria-labelledby="home-tab">
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4 mt-2">
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered " id="table_face_unknown" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Timestamp</th>
+                <th>CCTV</th>
+                <th>Preview</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for(let i=0; i<face_unknown.length; i++){ %>
+                <tr>
+                  <td><%= i+1 %></td>
+                  <td><%= face_unknown[i].face.date %></td>
+                  <td><%= face_unknown[i].event.camera_name %></td>
+                  <td><img src="/images/face-recognition-data/<%= face_unknown[i].face.images %>" alt="" height="100"></td>
+                  <td>
+                    <form action="/dashboard/face_unknown-enrollment/<%= face_unknown[i].id %>?_method=DELETE" method="POST">
+                      <a href="/dashboard/face_unknown-enrollment/<%= face_unknown[i].id %>" class="btn btn-warning btn-circle btn-sm button-update" data-id="<%= face_unknown[i].id %>"><i class="fas fa-edit"></i></a>
+                      <button type="submit" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></button>
+                    </form>
+                  </td>
+                </tr>
+              <%} %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  

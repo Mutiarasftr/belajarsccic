@@ -1,0 +1,23 @@
+<%
+revert = function (data){
+  return Buffer.from(data, 'base64').toString();
+}
+
+function addZero(i) {
+  if (i < 10) {
+    i = "0" + i;
+  }
+  return i;
+}
+
+Date.prototype.getFormatDate = function() {
+  var monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  return this.getDate() + ' ' + monthNames[this.getMonth()] + ', ' + this.getFullYear();
+}
+
+Date.prototype.getFormatTime = function() {
+  return addZero(this.getHours()) + ':' + addZero(this.getMinutes()) + ':' + addZero(this.getSeconds());
+}
+%>

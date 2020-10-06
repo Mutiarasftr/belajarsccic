@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"db_viana1.event_faces"}],"uuid":"0aff862ee0f9434ba547ea3ea8644c55"}
