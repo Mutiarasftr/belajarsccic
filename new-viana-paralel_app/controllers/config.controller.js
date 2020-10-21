@@ -555,6 +555,94 @@ module.exports = {
             res.redirect('/configuration/event');
         }
     },
+    //site2
+    viewSite2: async (req, res) => {
+        try {
+            const site2 = await Site2.find();
+            const alertMessage = req.flash('alertMessage');
+            const alertStatus = req.flash('alertStatus');
+            const alert = {message: alertMessage, status: alertStatus};
+            res.render('config/site/view_site', {
+                title: 'Viana | Site2',
+                alert,
+                site,
+                page: 'Site2'
+            });
+        } catch (error) {
+            req.flash('alertMessage', `${error.message}`);
+            req.flash('alertStatus', 'danger'); 
+            res.redirect('/configuration/site2');
+        }
+        
+    },
+    addSite2: async (req, res) => {
+        try {
+            const {name, description, city, location} = req.body;
+            await Site2.create({
+                name,
+                description,
+                city,
+                location
+            });
+            req.flash('alertMessage', 'Success add site');
+            req.flash('alertStatus', 'success'); 
+            res.redirect('/configuration/site2');
+        } catch (error) {
+            req.flash('alertMessage', `${error.message}`);
+            req.flash('alertStatus', 'danger'); 
+            res.redirect('/configuration/site2');
+        }
+    },
+    editSite2: async (req, res) => {
+        try {
+            const {id, name, description, city, location} = req.body;
+            const new_site = await Site.findOne({_id: id});
+            new_site.name = name;
+            new_site.description = description;
+            new_site.city = city;
+            new_site.location = location;
+            await new_site.save();
+            req.flash('alertMessage', 'Success update site');
+            req.flash('alertStatus', 'success'); 
+            res.redirect('/configuration/site2');
+        } catch (error) {
+            req.flash('alertMessage', `${error.message}`);
+            req.flash('alertStatus', 'danger'); 
+            res.redirect('/configuration/site2');
+        }
+    },
+    deleteSite2: async (req, res) => {
+        try {
+            const {id} = req.params;
+            const site2 = await Site2.findOne({_id: id});
+            if(site.cameraId.length != 0){
+                req.flash('alertMessage', 'Cannot delete site, document is used in camera');
+                req.flash('alertStatus', 'danger'); 
+                res.redirect('/configuration/site2');
+            }else{
+                await site2.remove();
+                req.flash('alertMessage', 'Success delete site');
+                req.flash('alertStatus', 'success'); 
+                res.redirect('/configuration/site2');
+            }
+        } catch (error) {
+            req.flash('alertMessage', `${error.message}`);
+            req.flash('alertStatus', 'danger'); 
+            res.redirect('/configuration/site2');
+        }
+    },
+    site2ById: async (req, res) => {
+        try {
+            const {id} = req.params;
+            const site = await Site.findById(id).populate({
+                path: 'cameraId',
+                match: {status: 'active'}
+            });
+            res.status(200).send(site2);
+        } catch (error) {
+            res.status(400).send(error);
+        }
+    },
 
     commandStart: async (req, res) => {
         try {
