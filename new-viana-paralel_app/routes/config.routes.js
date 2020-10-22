@@ -33,6 +33,14 @@ router.route('/parameter/:id')
     .get(configController.parameterById)
     .delete(configController.deleteParameter);
 
+router.route('/site2')
+    .get(configController.viewSite2)
+    .post(configController.addSite2)
+    .put(configController.editSite2);
+router.route('/site2/:id')
+    .get(configController.site2ById)
+    .delete(configController.deleteSite2);
+
 router.route('/event')
     .get(configController.viewEvent)
     .post(configController.addEvent);
