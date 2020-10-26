@@ -9,6 +9,18 @@ const parameterSchema = new mongoose.Schema({
     value_parameter: {
         type: String,
         required: true
+    },
+    cameraId: {
+        type: ObjectId,
+        ref: 'Camera'
+    },
+    analyticId: {
+        type: ObjectId,
+        ref: 'Analytic'
+    },
+    transId: {
+        type: ObjectId,
+        refPart: 'connection.kind'
     }
 });
 
