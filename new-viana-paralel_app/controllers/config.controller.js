@@ -2,6 +2,7 @@ const Site = require('../models/config/site.model');
 const Analytic = require('../models/config/analytic.model');
 const Camera = require('../models/config/camera.model');
 const Event = require('../models/config/event.model');
+const Parameter = require('../models/config/parameter.model');
 
 const SIMULATION_MODE = false;
 
@@ -315,10 +316,10 @@ module.exports = {
         }
     },
 
-    //parameter
+     //parameter
     viewParameter: async (req, res) => {
         try {
-            const parameter = await parameter.find();
+            const parameter = await Parameter.find();
             const alertMessage = req.flash('alertMessage');
             const alertStatus = req.flash('alertStatus');
             const alert = {message: alertMessage, status: alertStatus};
@@ -342,7 +343,7 @@ module.exports = {
                 name,
                 value,
             });
-            req.flash('alertMessage', 'Success add site');
+            req.flash('alertMessage', 'Success add parameter');
             req.flash('alertStatus', 'success'); 
             res.redirect('/configuration/parameter');
         } catch (error) {
@@ -370,11 +371,11 @@ module.exports = {
     deleteParameter: async (req, res) => {
         try {
             const {id} = req.params;
-            const site = await Parameter.findOne({_id: id});
-            if(site.cameraId.length != 0){
-                req.flash('alertMessage', 'Cannot delete site, document is used in camera');
+            const parameter = await Parameter.findOne({_id: id});
+            if(parameter.cameraId.length != 0){
+                req.flash('alertMessage', 'Cannot delete parameter, document is used in camera');
                 req.flash('alertStatus', 'danger'); 
-                res.redirect('/configuration/site');
+                res.redirect('/configuration/parameter');
             }else{
                 await parameter.remove();
                 req.flash('alertMessage', 'Success delete parameter');
