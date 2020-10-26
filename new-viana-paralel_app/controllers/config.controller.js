@@ -3,6 +3,7 @@ const Analytic = require('../models/config/analytic.model');
 const Camera = require('../models/config/camera.model');
 const Event = require('../models/config/event.model');
 const Parameter = require('../models/config/parameter.model');
+const Site2 = require('../models/config/site2.model');
 
 const SIMULATION_MODE = false;
 
@@ -316,7 +317,7 @@ module.exports = {
         }
     },
 
-     //parameter
+    //parameter
     viewParameter: async (req, res) => {
         try {
             const parameter = await Parameter.find();
@@ -556,37 +557,37 @@ module.exports = {
             res.redirect('/configuration/event');
         }
     },
-    //site2
-    viewSite2: async (req, res) => {
-        try {
+
+    // site2
+    viewSite2: async (req,res) => {
+        try{
             const site2 = await Site2.find();
             const alertMessage = req.flash('alertMessage');
             const alertStatus = req.flash('alertStatus');
             const alert = {message: alertMessage, status: alertStatus};
-            res.render('config/site/view_site', {
+            res.render('config/site2/viewsite', {
                 title: 'Viana | Site2',
                 alert,
-                site,
+                site2,
                 page: 'Site2'
             });
         } catch (error) {
             req.flash('alertMessage', `${error.message}`);
-            req.flash('alertStatus', 'danger'); 
-            res.redirect('/configuration/site2');
+            req.flash('alertStatus', 'danger');
+            req.redirect('/configuration/site2');
         }
-        
     },
-    addSite2: async (req, res) => {
-        try {
-            const {name, description, city, location} = req.body;
+    addSite2: async(req, res) => {
+        try{
+            const {name,description, city, location} = req.body;
             await Site2.create({
                 name,
                 description,
                 city,
                 location
             });
-            req.flash('alertMessage', 'Success add site');
-            req.flash('alertStatus', 'success'); 
+            req.flash('alertMessage', 'Succes add site2');
+            req.flash('alertStatus', 'succes');
             res.redirect('/configuration/site2');
         } catch (error) {
             req.flash('alertMessage', `${error.message}`);
@@ -597,13 +598,13 @@ module.exports = {
     editSite2: async (req, res) => {
         try {
             const {id, name, description, city, location} = req.body;
-            const new_site = await Site.findOne({_id: id});
+            const new_site = await Site2.findOne({_id: id});
             new_site.name = name;
             new_site.description = description;
             new_site.city = city;
             new_site.location = location;
             await new_site.save();
-            req.flash('alertMessage', 'Success update site');
+            req.flash('alertMessage', 'Success update site 2');
             req.flash('alertStatus', 'success'); 
             res.redirect('/configuration/site2');
         } catch (error) {
@@ -616,7 +617,7 @@ module.exports = {
         try {
             const {id} = req.params;
             const site2 = await Site2.findOne({_id: id});
-            if(site.cameraId.length != 0){
+            if(site2.cameraId.length != 0){
                 req.flash('alertMessage', 'Cannot delete site, document is used in camera');
                 req.flash('alertStatus', 'danger'); 
                 res.redirect('/configuration/site2');
@@ -635,7 +636,7 @@ module.exports = {
     site2ById: async (req, res) => {
         try {
             const {id} = req.params;
-            const site = await Site.findById(id).populate({
+            const site2 = await Site2.findById(id).populate({
                 path: 'cameraId',
                 match: {status: 'active'}
             });
@@ -644,6 +645,7 @@ module.exports = {
             res.status(400).send(error);
         }
     },
+
 
     commandStart: async (req, res) => {
         try {
